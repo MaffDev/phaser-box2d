@@ -19,13 +19,16 @@
   "author": "Phaser Studio <support@phaser.io> (https://phaser.io)",
   "type": "module",
   "main": "index.js",
+  "types": "types/phaser-box2d.d.ts",
+
   "scripts": {
     "docs": "node docs.mjs",
     "dev": "node overwatch/index.mjs",
     "build": "node overwatch/ProdBuild.mjs",
     "lint": "eslint --config eslint.config.js",
     "lintfix": "eslint --fix --config eslint.config.js",
-    "builddocs": "documentation build --config documentation.yml src/** -f html -o docs --theme docs-theme/index.js"
+    "builddocs": "documentation build --config documentation.yml src/** -f html -o docs --theme docs-theme/index.js",
+    "buildtypes": "jsdoc -t node_modules/tsd-jsdoc/dist -r src -d ./types && mv ./types/types.d.ts ./types/phaser-box2d.d.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -45,7 +48,8 @@
     "gzip-size": "^7.0.0",
     "highlight.js": "^11.11.0",
     "jsdoc": "^4.0.4",
-    "terser": "^5.37.0"
+    "terser": "^5.37.0",
+    "tsd-jsdoc": "^2.5.0"
   },
   "dependencies": {
     "cdt2d": "^1.0.0",
